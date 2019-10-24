@@ -4,6 +4,7 @@ var ejs = require('ejs');
 var bodyParser = require('body-parser');
 var expressSession= require('express-session');
 var expressValidator = require('express-validator');
+var cookieParser = require('cookie-parser');
 var app = express();
 
 //common controllers
@@ -11,6 +12,7 @@ var travelia= require('./controllers/travelia/travelia');// landing page control
 var login= require('./controllers/login/login');
 var usertype= require('./controllers/login/usertype');
 var registration = require('./controllers/registration/registration');
+var logout = require('./controllers/logout/logout');
 
 //for admin controllers starts
 var admin= require('./controllers/admin/admin');// landing page controller
@@ -25,12 +27,14 @@ app.set('view engine', 'ejs');
 
 //MIDDLEWARE
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(expressSession({secret:'travelia',saveUninitialized: true,resave: false}));
+app.use(expressSession({secret:'travelia',saveUninitialized: false,resave: false}));
 app.use(express.static('public'));//all css js icons etc
 app.use('/travelia',travelia); //landing page link
 app.use('/login',login);//checks login
 app.use('/usertype',usertype);
 app.use('/registration',registration);//registration for all 
+app.use('/logout',logout);
+app.use(cookieParser());
 
 //admin middleware starts
 app.use('/admin',admin);//admin page link

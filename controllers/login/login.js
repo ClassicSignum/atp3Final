@@ -13,7 +13,7 @@ router.post('/',function(request,response){
     db.getResults(sql, function(results){
 
         if(results.length > 0){
-            request.session.loginemail=login.email;// creates session as loginemail
+            request.session.loginemail=login.email;
             response.redirect('/usertype');
             
         }else{
