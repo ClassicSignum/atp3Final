@@ -27,7 +27,7 @@ app.set('view engine', 'ejs');
 
 //MIDDLEWARE
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(expressSession({secret:'travelia',saveUninitialized: false,resave: false}));
+app.use(expressSession({secret:'travelia',saveUninitialized: true,resave: false}));
 app.use(express.static('public'));//all css js icons etc
 app.use('/travelia',travelia); //landing page link
 app.use('/login',login);//checks login
