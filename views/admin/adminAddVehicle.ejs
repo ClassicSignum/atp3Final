@@ -102,7 +102,7 @@
                                 <i class="fas fa-user-friends"></i>
                             </div>
                             <div class="col-md-9 text-center travel-font">
-                                <a href="/admin/adminRentHistory">Rental History</a>
+                                <a href="">Travel Guider Info</a>
                             </div>
                         </div>
                         <div class="row btns">
@@ -111,7 +111,7 @@
                                 <i class="fas fa-users"></i>
                             </div>
                             <div class="col-md-9 text-center">
-                                    <a href="/admin/adminBlog">All blogs</a>
+                                <a href="">Hotel Emp Info</a>
                             </div>
                         </div>
                         <div class="row btns">
@@ -139,20 +139,48 @@
                 </div>
                 <div class="col-md-10">
                     <div class="items2">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="users">
-                                    <canvas id="myUser"></canvas>
-                                    <p>Graph of users</p>
 
-                                </div>
-                            </div>
-                            <div class="col-md-6">
+                        <%= typeof msg != 'undefined' ? msg : '' %>
 
-                                <canvas id="myProduct"></canvas>
-                                <p>Chart of places</p>
+                        <form method="post" enctype="multipart/form-data">
+
+
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Vehicle type</label>
+                                <select class="form-control" name="vehicletype"
+                                    id="exampleFormControlSelect1">
+                                    <option>Private car</option>
+                                    <option>Microbus</option>
+                                    <option>Pick-up</option>
+                                </select>
                             </div>
-                        </div>
+
+
+
+
+                            <div class="form-group">
+                                <input type="text" name="cartitle" class="form-control input-sm"
+                                    placeholder="Vehicle title">
+                                <div class="invalid-feedback">Oops, you missed email address</div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <input type="number" name="carcost"  class="form-control input-sm"
+                                    placeholder="car rent cost">
+                                <div class="invalid-feedback">Oops, you missed address</div>
+                            </div>
+
+                            <label for="exampleFormControlFile1">Add photo here</label>
+                            <input type="file" name="cartitle" class="form-control-file" id="exampleFormControlFile1">
+
+                           <br>                          
+
+                            <input type="submit" name="submit" value="Confirm" class="btn btn-info btn-block submit">
+
+                        </form>
+
                     </div>
                 </div>
             </div>
@@ -175,91 +203,7 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/Chart.min.js"></script>
 
-    <!-- chart js starts -->
-    <script>
-        var ctx = document.getElementById('myUser').getContext('2d');
-        var myUser = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Customers', 'Hotel Emp', 'Travel Guider', 'Care'],
-                datasets: [{
-                    label: 'User Catagory',
-                    data: [7, 3, 3, 10],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(155, 155, 155, 0.2)'
 
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(155, 155, 155, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                },
-                animation: {
-
-                    easing: 'easeOutBounce',
-
-                }
-
-            }
-        });
-
-
-        ///////////
-        var myPie = document.getElementById('myProduct').getContext('2d');
-        var myProduct = new Chart(myPie, {
-            type: 'pie',
-            data: {
-                labels: ['Dhaka', 'Rajshahi', 'Khulna', 'Chittagong', 'Barishal', 'Sylhet'],
-                datasets: [{
-                    label: 'Places chart',
-                    data: [2, 9, 3, 5, 4, 6],
-                    backgroundColor: [
-                        'rgba(180, 24, 180, 0.2)',
-                        'rgba(0, 0, 255, 0.2)',
-                        'rgba(0, 128, 0, 0.2)',
-                        'rgba(255, 255, 0, 0.2)',
-                        'rgba(255, 0, 0, 0.2)',
-                        'rgba(0, 0, 0, 0.2)',
-
-                    ],
-                    borderColor: [
-                        'rgba(180, 24, 180, 1)',
-                        'rgba(0, 0, 255, 1)',
-                        'rgba(0, 128, 0, 1)',
-                        'rgba(255, 255, 0, 1)',
-                        'rgba(255, 0, 0, 1)',
-                        'rgba(0, 0, 0, 1)',
-
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                animation: {
-
-                    easing: 'easeOutBounce',
-
-                }
-
-            }
-        });
-    </script>
-    <!-- chart js ends -->
 
 </body>
 

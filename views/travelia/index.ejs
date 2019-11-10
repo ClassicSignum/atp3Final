@@ -367,7 +367,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         </div>
         <div class="modal-body">
-          <form id="reg_form">
+          <form id="reg_form" action="/registration" method="post">
             <div class="row">
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
@@ -412,14 +412,14 @@
             <div class="row">
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                  <input type="text" name="password" id="password" class="form-control input-sm" placeholder="Password">
+                  <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
                   <div class="invalid-feedback">You must create a password</div>
                   <small>at least six characters and one digit</small>
                 </div>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                  <input type="text" name="password_confirmation" id="password_confirmation"
+                  <input type="password" name="password_confirmation" id="password_confirmation"
                     class="form-control input-sm" placeholder="Confirm Password">
                   <div class="invalid-feedback">Confirm your password</div>
                 </div>
@@ -460,74 +460,74 @@
 
       
 
-      $('.submit').click(function (e) {
-        e.preventDefault();
+      // $('.submit').click(function (e) {
+      //   e.preventDefault();
        
 
-        //validations starts
-        $firstName = $('#first_name').val();
-        $lastName = $('#last_name').val();
-        $email = $('#email').val();
-        $userType = $('.user_type').val();
-        $address = $('#address').val();
-        $phoneNo = $('#phoneNo').val();
-        $pass = $('#password').val();
-        $confirmPass = $('#password_confirmation').val();
+      //   //validations starts
+      //   $firstName = $('#first_name').val();
+      //   $lastName = $('#last_name').val();
+      //   $email = $('#email').val();
+      //   $userType = $('.user_type').val();
+      //   $address = $('#address').val();
+      //   $phoneNo = $('#phoneNo').val();
+      //   $pass = $('#password').val();
+      //   $confirmPass = $('#password_confirmation').val();
 
-        if ($firstName == "" || $lastName == "" || $email == "" || $address == "" || $userType == "" || $phoneNo == "" || $pass == "") {
-          alert('invalid input:fill up all the information');
-        }
-        else {
-          if ($firstName.includes(" ") || $lastName.includes(" ") || $email.includes(" ") || $userType.includes(" ") || $phoneNo.includes(" ") || $pass.includes(" ") ) {
-          alert("invalid input:don't use any space");
-          }
-          else if($pass.length<7){
-            alert("Use at least six characters and one number!");
+      //   if ($firstName == "" || $lastName == "" || $email == "" || $address == "" || $userType == "" || $phoneNo == "" || $pass == "") {
+      //     alert('invalid input:fill up all the information');
+      //   }
+      //   else {
+      //     if ($firstName.includes(" ") || $lastName.includes(" ") || $email.includes(" ") || $userType.includes(" ") || $phoneNo.includes(" ") || $pass.includes(" ") ) {
+      //     alert("invalid input:don't use any space");
+      //     }
+      //     else if($pass.length<7){
+      //       alert("Use at least six characters and one number!");
 
-          }
-         else if (!/[a-zA-Z]/.test($pass)) {
-            alert("Use at least six characters and one number!");
+      //     }
+      //    else if (!/[a-zA-Z]/.test($pass)) {
+      //       alert("Use at least six characters and one number!");
             
-          }
-         else if (!/\d/.test($pass)) {
-            alert("Use at least six characters and one number!");
+      //     }
+      //    else if (!/\d/.test($pass)) {
+      //       alert("Use at least six characters and one number!");
 
-          }
-          else if ($pass !== $confirmPass) {
-            alert("Re-type password ");
+      //     }
+      //     else if ($pass !== $confirmPass) {
+      //       alert("Re-type password ");
 
-          }
-          else {
-            var request;
-            //  var $form = $('#reg_form');
-            // $dataa = 'first_name' + $firstName + '&last_name' + $lastName + '&user_type' + $userType + '&email' + $email + '&address' + $address + '&phoneNo' + $phoneNo + '&password' + $pass;
-            // $dataa = 'first_name' + $firstName + '&last_name' + $lastName;
+      //     }
+      //     else {
+      //       var request;
+      //       //  var $form = $('#reg_form');
+      //       // $dataa = 'first_name' + $firstName + '&last_name' + $lastName + '&user_type' + $userType + '&email' + $email + '&address' + $address + '&phoneNo' + $phoneNo + '&password' + $pass;
+      //       // $dataa = 'first_name' + $firstName + '&last_name' + $lastName;
 
 
-            $.ajax({
-              url: '/registration',
-              type: 'POST',
-              data: { first_name: $firstName, last_name: $lastName, user_type: $userType, email: $email, address: $address, phoneNo: $phoneNo, password: $pass },
-              success: function (response) {
-                //var data = JSON.parse(response);
+      //       $.ajax({
+      //         url: '/registration',
+      //         type: 'POST',
+      //         data: { first_name: $firstName, last_name: $lastName, user_type: $userType, email: $email, address: $address, phoneNo: $phoneNo, password: $pass },
+      //         success: function (response) {
+      //           //var data = JSON.parse(response);
                 
-              },
-              error: function (err) {
-                alert("error");
-              }
-            });
+      //         },
+      //         error: function (err) {
+      //           alert("error");
+      //         }
+      //       });
 
-          }
+      //     }
 
 
-          }
+      //     }
 
-        //ajax starts
+      //   //ajax starts
 
      
 
 
-        });
+      //   });
 
 
 

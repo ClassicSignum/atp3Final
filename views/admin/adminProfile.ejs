@@ -82,7 +82,7 @@
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="col-md-9 text-center">
-                                <a href="">Customer Info</a>
+                                <a href="/admin/adminTraveller">Traveller Info</a>
                             </div>
                         </div>
 
@@ -92,7 +92,7 @@
                                 <i class="fas fa-user-friends"></i>
                             </div>
                             <div class="col-md-9 text-center travel-font">
-                                <a href="">Travel Guider Info</a>
+                                <a href="/admin/adminTravelGuide">Travel Guider Info</a>
                             </div>
                         </div>
                         <div class="row btns">
@@ -101,16 +101,25 @@
                                 <i class="fas fa-users"></i>
                             </div>
                             <div class="col-md-9 text-center">
-                                <a href="">Hotel Emp Info</a>
+                                <a href="/admin/adminHotelEmp">Hotel Emp Info</a>
                             </div>
                         </div>
+                        <div class="row btns">
+
+                                <div class="col-md-3">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="col-md-9 text-center">
+                                    <a href="/admin/adminCustCare">Cust. Care Info</a>
+                                </div>
+                            </div>
                         <div class="row btns">
 
                             <div class="col-md-3">
                                 <i class="far fa-list-alt"></i>
                             </div>
                             <div class="col-md-9 text-center">
-                                <a href="">Hotels</a>
+                                <a href="/admin/adminHotelinfo">Hotels</a>
                             </div>
                         </div>
                         <div class="row btns">
@@ -122,6 +131,33 @@
                                 <a href="/admin/adminAddCust">Add cust. care</a>
                             </div>
                         </div>
+                        <div class="row btns">
+
+                            <div class="col-md-3">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="col-md-9 text-center travel-font">
+                                <a href="/admin/adminTravelPlace">Travel Places</a>
+                            </div>
+                        </div>
+                        <div class="row btns">
+
+                            <div class="col-md-3">
+                                    <i class="fas fa-file-invoice-dollar"></i>
+                            </div>
+                            <div class="col-md-9 text-center travel-font">
+                                <a href="/admin/adminCustAudit">Cust. Care Audit</a>
+                            </div>
+                      </div>
+                      <div class="row btns">
+
+                        <div class="col-md-3">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="col-md-9 text-center travel-font">
+                            <a href="/admin/adminServiceCharge">Service Charge</a>
+                        </div>
+                  </div>
 
 
 
@@ -158,11 +194,11 @@
                                   <input type="text" name="password" value="<%= users[0].password %>" class="form-control " id="exampleFormControlInput1">
 
                                   <label for="exampleFormControlInput1">Create Password</label>
-                                  <input type="text" name="password" class="form-control password" id="exampleFormControlInput1">
+                                  <input type="text" name="createpassword" class="form-control password" id="exampleFormControlInput1">
                                   
 
                                   <label for="exampleFormControlInput1">Confirm Password</label>
-                                  <input type="text" name="confirm-password" class="form-control confirm-password" id="exampleFormControlInput1">
+                                  <input type="text" name="confirmpassword" class="form-control confirm-password" id="exampleFormControlInput1">
                                   
                                   <input type="submit"  name="update" class="mt-4 btn btn-outline-secondary" value="Update">
                                   

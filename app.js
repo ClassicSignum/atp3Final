@@ -6,6 +6,20 @@ var expressSession= require('express-session');
 var expressValidator = require('express-validator');
 var cookieParser = require('cookie-parser');
 var app = express();
+var multer = require('multer');
+
+// multer disk storage 
+
+// var storage = multer.diskStorage({
+// 	destination: function (req, file, callback) {
+// 	  callback(null, '/public/images/vehicles/')
+// 	},
+// 	filename: function (req, file, cb) {
+// 	  callback(null, file.fieldname + '.jpg') // fieldname is car-name field within addvehicle file
+// 	}
+//   })
+
+// var upload = multer({ storage: storage }).single('car-pic');
 
 //common controllers
 var travelia= require('./controllers/travelia/travelia');// landing page controller

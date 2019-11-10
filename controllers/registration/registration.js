@@ -19,11 +19,15 @@ router.post('/',function(request,response){
     else{
         usert="customer";
     }
-    var sql ="insert into user values('','"+reginfo.email+"', '"+ reginfo.password+"', '"+reginfo.firstname+"', '"+reginfo.lastname+"', '"+usert+"', '"+reginfo.phoneno+"', '"+reginfo.address+"')";
+    var sql ="insert into userinfo values('','"+reginfo.email+"', '"+ reginfo.password+"', '"+reginfo.firstname+"', '"+reginfo.lastname+"', '"+usert+"', '"+reginfo.phoneno+"', '"+reginfo.address+"','permitted')";
     db.execute(sql, function(status){
         
            if(status){
-                response.redirect('/admin');
+            var sql ="insert into user values('','"+reginfo.email+"', '"+ reginfo.password+"','"+usert+"')";
+            db.execute(sql,function(status){
+
+                response.redirect('/travelia');
+            })
            }
            else{
                 response.send("error reg.js");

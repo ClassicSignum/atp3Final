@@ -108,10 +108,10 @@
                         <div class="row btns">
 
                             <div class="col-md-3">
-                                <i class="fas fa-users"></i>
+                                <i class="fas fa-result"></i>
                             </div>
                             <div class="col-md-9 text-center">
-                                    <a href="/admin/adminBlog">All blogs</a>
+                                <a href="/admin/adminBlog">All blogs</a>
                             </div>
                         </div>
                         <div class="row btns">
@@ -139,20 +139,44 @@
                 </div>
                 <div class="col-md-10">
                     <div class="items2">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="users">
-                                    <canvas id="myUser"></canvas>
-                                    <p>Graph of users</p>
 
-                                </div>
-                            </div>
-                            <div class="col-md-6">
+                        <table class="table table-hover wow flipInX table-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Blog</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% 
+                             var count =0;
+                             for(var i=0 ; i < result.length ; i++) { 
+                                 count++;
+                                
+                                %>
 
-                                <canvas id="myProduct"></canvas>
-                                <p>Chart of places</p>
-                            </div>
-                        </div>
+                                <form action="" method="post">
+                                    <input type="hidden" name="email" value="<%= result[i].usermail %>">
+                                    <input type="hidden" name="id" value="<%= result[i].id %>">
+
+                                    <tr>
+                                        <th scope="row"><%= count %></th>
+
+                                        <td><%= result[i].usermail %></td>
+                                        <td><%= result[i].blog %></td>
+
+                                        <td> <input type="submit" class="btn btn-warning" name="submit"
+                                                value="delete this"></td>
+
+                                    </tr>
+                                </form>
+
+                                <%   }       %>
+                            </tbody>
+                        </table>
+
                     </div>
                 </div>
             </div>
@@ -175,91 +199,7 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/Chart.min.js"></script>
 
-    <!-- chart js starts -->
-    <script>
-        var ctx = document.getElementById('myUser').getContext('2d');
-        var myUser = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Customers', 'Hotel Emp', 'Travel Guider', 'Care'],
-                datasets: [{
-                    label: 'User Catagory',
-                    data: [7, 3, 3, 10],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(155, 155, 155, 0.2)'
 
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(155, 155, 155, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                },
-                animation: {
-
-                    easing: 'easeOutBounce',
-
-                }
-
-            }
-        });
-
-
-        ///////////
-        var myPie = document.getElementById('myProduct').getContext('2d');
-        var myProduct = new Chart(myPie, {
-            type: 'pie',
-            data: {
-                labels: ['Dhaka', 'Rajshahi', 'Khulna', 'Chittagong', 'Barishal', 'Sylhet'],
-                datasets: [{
-                    label: 'Places chart',
-                    data: [2, 9, 3, 5, 4, 6],
-                    backgroundColor: [
-                        'rgba(180, 24, 180, 0.2)',
-                        'rgba(0, 0, 255, 0.2)',
-                        'rgba(0, 128, 0, 0.2)',
-                        'rgba(255, 255, 0, 0.2)',
-                        'rgba(255, 0, 0, 0.2)',
-                        'rgba(0, 0, 0, 0.2)',
-
-                    ],
-                    borderColor: [
-                        'rgba(180, 24, 180, 1)',
-                        'rgba(0, 0, 255, 1)',
-                        'rgba(0, 128, 0, 1)',
-                        'rgba(255, 255, 0, 1)',
-                        'rgba(255, 0, 0, 1)',
-                        'rgba(0, 0, 0, 1)',
-
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                animation: {
-
-                    easing: 'easeOutBounce',
-
-                }
-
-            }
-        });
-    </script>
-    <!-- chart js ends -->
 
 </body>
 

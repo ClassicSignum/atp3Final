@@ -6,8 +6,9 @@ router.get('/', function(request, response){
 	//request.session.un = null;
 	// response.clearCookie('loginemail');
 	request.session.loginemail=null;
+	request.session.usertypes=null;
 	
 	response.redirect('/travelia');
 });
 
-module.exports = router;
+module.exports=router;
